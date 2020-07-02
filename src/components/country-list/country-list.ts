@@ -1,12 +1,12 @@
 import { Component, Vue } from "vue-property-decorator";
-import CovidDataService from "../../services/CovidDataService";
-
+const CountrySummary = () => import('./../country-summary/country-summary');
 @Component({
     template: require("./country-list.html"),
+    components: {
+        CountrySummary
+    }
   })
 export default class CountryList extends Vue {
-    private Countries: any[] = [];
-    private Global: any = {};
     private headers: any = [
         { text: "Country", value: "Country" },
         { text: "Total Cases", value: "TotalConfirmed" },
@@ -18,16 +18,16 @@ export default class CountryList extends Vue {
       ];
 
     public retrieveCovidData() {
-        CovidDataService.getAll()
-            .then((response: any) => {
-                this.Countries = response.data.Countries;
-                this.Global = response.data.Global;
-            })
-            .catch((e) => {
-                console.log(e);
-            });
+        this.$store.dispatch('loadUsers');
     }
-    public displaydetails(id: any) {
+    get Global(){
+        return this.$store.state.Global;
+    }
+    get Countries(){
+        return this.$store.state.Countries;
+    }
+    public displaydetails(item:any, row:any) {
+        let id = item.Slug;
         this.$router.push({ name: "countrylist-details", params: { id } });
     }
     public mounted() {
