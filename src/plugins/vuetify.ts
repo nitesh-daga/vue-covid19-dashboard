@@ -1,9 +1,9 @@
 import Vue from "vue";
-import Vuetify, { VFlex, VLayout, VContainer, VImg, VApp, VAppBar, VBtn, VCol, VRow, VSpacer, VMain, VIcon } from "vuetify/lib";
+import Vuetify, { VFlex, VLayout, VContainer, VImg, VApp, VAppBar, VBtn, VCol, VRow, VSpacer, VMain, VIcon, VDataTable, VDataTableHeader, VDataIterator, VSkeletonLoader } from "vuetify/lib";
 // import 'vuetify/src/stylus/app.styl';
 
 Vue.use(Vuetify, {
-  components: { VFlex, VLayout, VContainer, VImg, VApp, VAppBar, VBtn, VCol, VRow, VSpacer, VMain, VIcon  },
+  components: { VFlex, VLayout, VContainer, VImg, VApp, VAppBar, VBtn, VCol, VRow, VSpacer, VMain, VIcon,VDataTable, VDataTableHeader,VDataIterator,VSkeletonLoader  },
   theme: {
     primary: "#ee44aa",
     secondary: "#424242",
@@ -14,7 +14,7 @@ Vue.use(Vuetify, {
     warning: "#FFC107",
   },
   customProperties: true,
-  iconfont: "md",
+  iconfont: "mdi",
 });
 const opts = {};
 

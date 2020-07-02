@@ -26,12 +26,7 @@
       </div>
 
       <v-spacer></v-spacer>
-            <v-btn
-        href="/countrylist"
-        text
-      >
-        <span class="mr-2">Country List</span>
-      </v-btn>
+            
       <v-btn
         href="https://github.com/vuetifyjs/vuetify/releases/latest"
         target="_blank"
@@ -43,24 +38,16 @@
     </v-app-bar>
 
     <v-main>
-      <HelloWorld/>
+      <router-view />
     </v-main>
   </v-app>
 </template>
 
 <script lang="ts">
-import Vue from "vue";
-import HelloWorld from "./components/HelloWorld.vue";
+import { Component, Vue } from "vue-property-decorator";
 
-export default Vue.extend({
-  name: "App",
+@Component
+export default class App extends Vue {
 
-  components: {
-    HelloWorld,
-  },
-
-  data: () => ({
-    //
-  }),
-});
+}
 </script>

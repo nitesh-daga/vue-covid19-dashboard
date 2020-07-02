@@ -1,0 +1,301 @@
+html {
+    font-size: 20px;
+    overflow-x: hidden;
+    @media (max-width: 768px) {
+      font-size: 16px;
+    }
+  }
+  body {
+    background: #fff;
+    padding: 0;
+    font-family: "Inter", sans-serif;
+    max-width: 1300px;
+    padding: 1rem;
+    margin: auto;
+  }
+  h1 {
+    font-size: 3rem;
+    font-weight: 900;
+    margin: 1.5rem 0;
+    @media screen and (max-width: 767.98px) {
+      font-size: 2.6rem;
+    }
+  }
+  h2 {
+    margin-top: 3rem;
+    transition: all 0.5s ease;
+    opacity: 1;
+    &.has-animation {
+      transform: translateY(30px);
+      opacity: 0;
+    }
+  }
+  
+  h3 {
+    font-size: 1.8rem;
+    transform: translateY(10px);
+    opacity: 0;
+    transition: all 0.5s ease;
+    &.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    @media screen and (max-width: 767.98px) {
+      font-size: 1.6rem;
+    } 
+     @media screen and (max-width: 320px) {
+      font-size: 1.4rem;
+    }
+  }
+  
+  
+  .container {
+    display: grid;
+    grid-template-columns: 40% 55%;
+    grid-gap: 5%;
+    align-items: self-start;
+    @media (max-width: 768px) {
+      grid-template-columns: 100%;
+    }
+    
+  
+    .right {
+      padding: 1rem 0;
+      text-align: center;
+    }
+    .left {
+      background-color: #fafafa;
+      background-color: #ffc800;
+      border-radius: 2rem;
+      padding: 2rem;
+      text-align: center;
+  
+      box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3),
+        0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    }
+  }
+  .loader {
+    border: 2px solid #ffffff;
+    border-top: 2px solid #000000;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 2s linear infinite;
+    display: inline-block;
+    margin: 1rem 0;
+    transition: opacity 0.3s ease;
+    &.animate {
+      opacity: 1;
+    }
+  }
+  
+  .card-wrap {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 1rem;
+    @media (max-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media (max-width: 320px) {
+        grid-template-columns: repeat(1, 1fr);
+      }
+    .card {
+      // box-shadow: 0 3px 8px #cecece;
+      border-radius: 1rem;
+      text-align: center;
+      color: white;
+      border: 1px solid transparent;
+      display: grid;
+      grid-template-rows: 70% 30%;
+      height: 160px;
+      transition: all 0.5s ease;
+      @media (max-width: 768px) {
+        height: 140px;
+      }
+      opacity: 1;
+      &.has-animation {
+        transform: translateY(30px);
+        opacity: 0;
+      }
+      &.blue {
+        color: #1687ed;
+        background: lighten(#1687ed, 45%);
+        border-color: lighten(#1687ed, 15%);
+        .loader {
+          border-color: #99d0ff;
+          border-top-color: #1687ed;
+        }
+      }
+      &.red {
+        color: #ff0000;
+        background: lighten(#ff0000, 45%);
+        border-color: lighten(#ff0000, 25%);
+        .loader {
+          border-color: #ff9696;
+          border-top-color: #ff0000;
+        }
+      }
+      &.green {
+        color: #007e08;
+        background: lighten(#007e08, 65%);
+        border-color: lighten(#007e08, 15%);
+        .loader {
+          border-color: #75cc7d;
+          border-top-color: #007e08;
+        }
+      }
+      > * {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color : #ffffff;
+      }
+    }
+  }
+  svg {
+    max-width: 300px;
+    overflow: visible;
+  }
+  .attribution {
+    font-size: 0.7rem;
+    margin: 0.2rem;
+    a {
+      text-decoration: none;
+      color: black;
+      font-weight: bold;
+    }
+  }
+  .parent {
+    transform-origin: 66px 56px;
+    animation: spin 200s infinite;
+  }
+  .child1 {
+    animation: child1 10s 2s alternate infinite;
+  }
+  .child2 {
+    animation: child2 5s alternate infinite;
+  }
+  .child3 {
+    animation: child3 10s alternate infinite;
+    transform-origin: center center;
+  }
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes child1 {
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(35px, -20px);
+    }
+  }
+  @keyframes child2 {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-5px);
+    }
+  }
+  @keyframes child3 {
+    0% {
+      transform: translateY(-10px) rotate(50deg);
+    }
+    100% {
+      transform: translateY(50px) rotate(0deg);
+    }
+  }
+  
+  .country-list{
+      margin-top: 40px;
+      h4{
+        margin-bottom: 20px;
+      }
+    table {
+        max-width: 100vw;
+        width: auto;
+        flex: 1;
+        display: grid;
+        border-collapse: collapse;
+        /* These are just initial values which are overriden using JavaScript when a column is resized */
+        grid-template-columns: 
+          minmax(75px, 1fr)
+          minmax(180px, 1fr)
+          minmax(150px, 1fr)
+          minmax(140px, 1fr)
+          minmax(160px, 1fr)
+          minmax(150px, 1fr)
+          minmax(190px, 1fr)
+      }
+      thead,
+      tbody,
+      tr {
+        display: contents;
+      }
+      colgroup{
+        display: none;
+        }
+        th {
+            background-color: #1687ed;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            &.active{
+                span{
+                    text-decoration: underline;
+                }
+            }
+            span{
+                color: #fff !important;
+            }
+        }
+        td{
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            color: #808080;
+            cursor: pointer;
+        }
+   
+      tr:nth-child(even) td {
+        background: #f8f6ff;
+      }
+      
+  }
+  
+  .details{
+    table {
+        max-width: 100vw;
+        width: auto;
+        flex: 1;
+        display: grid;
+        border-collapse: collapse;
+        /* These are just initial values which are overriden using JavaScript when a column is resized */
+        grid-template-columns: 
+          minmax(75px, 1fr)
+          minmax(150px, 1fr)
+          minmax(200px, 1fr)
+          minmax(140px, 1fr)
+          minmax(160px, 1fr)
+          minmax(180px, 1fr)
+      }
+      colgroup{
+          display: none;
+      }
+    }
+
+  
+  

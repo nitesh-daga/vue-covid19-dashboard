@@ -1,0 +1,21 @@
+<div class="d-flex country-list details">
+    <div class="list row">
+        <div class="col-md-12">
+            <v-btn rounded color="primary" @click="displayList() " dark>Back</v-btn>
+            <br>
+            <br>
+            <h4 v-if="countryData">Situation in {{countryData[0].Country}}</h4>
+          <v-data-table v-if="countryData"
+          :headers="headers"
+          :items="countryData"
+          :hide-default-footer="true"
+          disable-pagination
+          class="elevation-1"
+        >
+        <template v-slot:item.Date="{ item }">
+            {{ item.Date | formatDate }}
+          </template>
+    </v-data-table>
+        </div>
+      </div>
+</div>

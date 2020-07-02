@@ -8,7 +8,7 @@ const routes: RouteConfig[] = [
   {
     path: "/",
     name: "Home",
-    component: Home,
+    component: () => import("../components/country-list/country-list")
   },
   {
     path: "/about",
@@ -19,19 +19,27 @@ const routes: RouteConfig[] = [
     component: () => import(/* webpackChunkName: "about" */ "../views/About.vue"),
   },
   {
-    path: "/",
-    alias: "/countrylist",
+    path: "/countrylist",
     name: "countrylist",
-    component: () => import("../components/CountryList.vue"),
+    component: () => import("../components/country-list/country-list"),
+    // component: () => import("../components/CountryList.vue"),
   },
   {
-    path: "/countrylist/:id",
+    path: "/country/:id",
     name: "countrylist-details",
-    component: () => import("../components/CountryListDetails.vue"),
+    component: () => import("../components/country-details/country-details")
+    // component: () => import("../components/CountryListDetails.vue"),
   },
 ];
 
 const router = new VueRouter({
+  scrollBehavior (to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition
+    } else {
+      return { x: 0, y: 0 }
+    }
+  },
   mode: "history",
   base: process.env.BASE_URL,
   routes,
