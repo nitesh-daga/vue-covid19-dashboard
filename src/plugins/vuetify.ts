@@ -3,7 +3,7 @@ import Vuetify, { VFlex, VLayout, VContainer, VImg, VApp, VAppBar, VBtn, VCol, V
 // import 'vuetify/src/stylus/app.styl';
 
 Vue.use(Vuetify, {
-  components: { VFlex, VLayout, VContainer, VImg, VApp, VAppBar, VBtn, VCol, VRow, VSpacer, VMain, VIcon,VDataTable, VDataTableHeader,VDataIterator,VSkeletonLoader  },
+  components: { VFlex, VLayout, VContainer, VImg, VApp, VAppBar, VBtn, VCol, VRow, VSpacer, VMain, VIcon, VDataTable, VDataTableHeader, VDataIterator, VSkeletonLoader  },
   theme: {
     primary: "#ee44aa",
     secondary: "#424242",
@@ -14,7 +14,7 @@ Vue.use(Vuetify, {
     warning: "#FFC107",
   },
   customProperties: true,
-  iconfont: "mdi",
+  iconfont: "md",
 });
 const opts = {};
 

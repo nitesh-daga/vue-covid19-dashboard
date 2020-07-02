@@ -8,7 +8,7 @@ const routes: RouteConfig[] = [
   {
     path: "/",
     name: "Home",
-    component: () => import("../components/country-list/country-list")
+    component: () => import("../components/country-list/country-list"),
   },
   {
     path: "/about",
@@ -27,17 +27,17 @@ const routes: RouteConfig[] = [
   {
     path: "/country/:id",
     name: "countrylist-details",
-    component: () => import("../components/country-details/country-details")
+    component: () => import("../components/country-details/country-details"),
     // component: () => import("../components/CountryListDetails.vue"),
   },
 ];
 
 const router = new VueRouter({
-  scrollBehavior (to, from, savedPosition) {
+  scrollBehavior(to, from, savedPosition) {
     if (savedPosition) {
-      return savedPosition
+      return savedPosition;
     } else {
-      return { x: 0, y: 0 }
+      return { x: 0, y: 0 };
     }
   },
   mode: "history",

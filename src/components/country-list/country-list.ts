@@ -2,19 +2,19 @@ import { Component, Vue } from "vue-property-decorator";
 import CovidDataService from "../../services/CovidDataService";
 
 @Component({
-    template: require('./country-list.html')
+    template: require("./country-list.html"),
   })
 export default class CountryList extends Vue {
     private Countries: any[] = [];
     private Global: any = {};
-    private headers:any = [
-        { text: 'Country', value: 'Country' },
-        { text: 'Total Cases', value: 'TotalConfirmed' },
-        { text: 'New Cases', value: 'NewConfirmed' },
-        { text: 'Total Deaths', value: 'TotalDeaths' },
-        { text: 'New Deaths', value: 'NewDeaths' },
-        { text: 'Total Recovered', value: 'TotalRecovered' },
-        { text: 'New Recovered', value: 'NewRecovered' }
+    private headers: any = [
+        { text: "Country", value: "Country" },
+        { text: "Total Cases", value: "TotalConfirmed" },
+        { text: "New Cases", value: "NewConfirmed" },
+        { text: "Total Deaths", value: "TotalDeaths" },
+        { text: "New Deaths", value: "NewDeaths" },
+        { text: "Total Recovered", value: "TotalRecovered" },
+        { text: "New Recovered", value: "NewRecovered" },
       ];
 
     public retrieveCovidData() {
@@ -28,7 +28,7 @@ export default class CountryList extends Vue {
             });
     }
     public displaydetails(id: any) {
-        this.$router.push({ name: 'countrylist-details', params: { id: id } });
+        this.$router.push({ name: "countrylist-details", params: { id } });
     }
     public mounted() {
         this.retrieveCovidData();
